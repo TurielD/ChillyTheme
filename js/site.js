@@ -65,7 +65,7 @@ jQuery(document).ready(function ($) {
         nextHtml: '',
  
         rtl:false,
-        adaptiveHeight:false,
+        adaptiveHeight:true,
  
         vertical:false,
         verticalHeight:500,
