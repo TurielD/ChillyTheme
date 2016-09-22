@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('slider', 1200, 800, array( 'center', 'center' )); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -470,17 +470,12 @@ function create_custom_post_types()
 function pw_rcp_add_user_fields() {
     
     $company_name = get_user_meta( get_current_user_id(), 'rcp_company_name', true );
-    $address   = get_user_meta( get_current_user_id(), 'rcp_address', true );
     $house_number   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
     $postcode   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
     ?>
     <p id="rcp_company_name_wrap">
         <label for="rcp_company_name"><?php _e( 'Company name', 'rcp' ); ?></label>
         <input name="rcp_company_name" id="rcp_company_name" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $company_name ); ?>"/>
-    </p>
-    <p id="rcp_address_wrap">
-        <label for="rcp_address"><?php _e( 'Address', 'rcp' ); ?></label>
-        <input name="rcp_address" id="rcp_address" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $address ); ?>"/>
     </p>
     <p id="rcp_house_number_wrap">
         <label for="rcp_house_number"><?php _e( 'House Number', 'rcp' ); ?></label>
@@ -510,15 +505,6 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
     </tr>
     <tr valign="top">
         <th scope="row" valign="top">
-            <label for="rcp_company_name"><?php _e( 'Phone', 'rcp' ); ?></label>
-        </th>
-        <td>
-            <input name="rcp_address" id="rcp_address" type="text" value="<?php echo esc_attr( $address ); ?>"/>
-            <p class="description"><?php _e( 'The member\'s phone number', 'rcp' ); ?></p>
-        </td>
-    </tr>
-    <tr valign="top">
-        <th scope="row" valign="top">
             <label for="rcp_house_number"><?php _e( 'House number', 'rcp' ); ?></label>
         </th>
         <td>
@@ -538,9 +524,6 @@ function pw_rcp_validate_user_fields_on_register( $posted ) {
     if( empty( $posted['rcp_company_name'] ) ) {
         rcp_errors()->add( 'invalid_company name', __( 'Please enter your company name', 'rcp' ), 'register' );
     }
-    if( empty( $posted['rcp_address'] ) ) {
-        rcp_errors()->add( 'invalid_address', __( 'Please enter your address', 'rcp' ), 'register' );
-    }
     if( empty( $posted['rcp_house_number'] ) ) {
         rcp_errors()->add( 'invalid_house_number', __( 'Please enter your house number', 'rcp' ), 'register' );
     }
@@ -553,9 +536,6 @@ add_action( 'rcp_form_errors', 'pw_rcp_validate_user_fields_on_register', 10 );
 function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
     if( ! empty( $posted['rcp_company_name'] ) ) {
         update_user_meta( $user_id, 'rcp_company_name', sanitize_text_field( $posted['rcp_company_name'] ) );
-    }
-    if( ! empty( $posted['rcp_address'] ) ) {
-        update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $posted['rcp_address'] ) );
     }
     if( ! empty( $posted['rcp_house_number'] ) ) {
         update_user_meta( $user_id, 'rcp_house_number', sanitize_text_field( $posted['rcp_house_number'] ) );
@@ -570,16 +550,10 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
     if( ! empty( $_POST['rcp_company_name'] ) ) {
         update_user_meta( $user_id, 'rcp_company_name', sanitize_text_field( $_POST['rcp_company_name'] ) );
     }
-    if( ! empty( $_POST['rcp_address'] ) ) {
-        update_user_meta( $user_id, 'rcp_address', sanitize_text_field( $_POST['rcp_address'] ) );
-    }
     if( ! empty( $_POST['rcp_house_number'] ) ) {
         update_user_meta( $user_id, 'rcp_house_number', sanitize_text_field( $_POST['rcp_house_number'] ) );
     }
 }
 add_action( 'rcp_user_profile_updated', 'pw_rcp_save_user_fields_on_profile_save', 10 );
 add_action( 'rcp_edit_member', 'pw_rcp_save_user_fields_on_profile_save', 10 );
-
-
-
 ?>
