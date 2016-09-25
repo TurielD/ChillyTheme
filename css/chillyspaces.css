@@ -6003,11 +6003,11 @@ body {
   position: fixed; }
 
 .navbar-brand {
-  padding: 1.3rem 0 1.0625rem 1rem;
+  padding: 1.3rem 0 .3rem;
   margin: 0; }
   @media (max-width: 991px) {
     .navbar-brand {
-      padding: .5rem 0; } }
+      padding: .5rem 0 .3rem; } }
 
 .icon-logo {
   font-size: 45px; }
@@ -6270,9 +6270,14 @@ body {
   .jumbotron a.jumbolink:focus {
     opacity: 1; }
 
-@media (max-width: 991px) {
-  .chilly-logo-hero {
-    width: 40%; } }
+.logo-wrap {
+  width: 167px;
+  text-align: center;
+  color: #fff; }
+  .logo-wrap h6 {
+    line-height: 0;
+    display: block;
+    width: 100%; }
 
 .carousel-header,
 .carousel-inner,
@@ -7104,9 +7109,9 @@ figure {
 
 .social {
   text-align: right;
-  padding: 1.7rem 2rem 0; }
+  padding: 1.7rem 0; }
   .social a {
-    padding: 0 .1rem;
+    padding: 0;
     color: #fff; }
   @media (max-width: 767px) {
     .social {
@@ -7231,3 +7236,9 @@ hr.title-underlined {
   #preloader .inner {
     display: table-cell;
     vertical-align: middle; }
+
+#promo {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }

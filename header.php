@@ -16,18 +16,15 @@
 
 	</head>
 	<body <?php body_class(); ?>>
-  <?php if (is_front_page()) {;?>
-  <div id="preloader">
-    <div class="inner"><h1>30 Days left till our grand opening</h1></div>
-  </div>
-  <? } ?>
-
 	<nav class="navbar navbar-fixed-top <?php echo (! is_front_page() ? 'bg-inverse' : '');?>">
     <div class="container-fluid">
-      <div class="col-xs-3 p-l-0">
-      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <img class="chilly-logo-header" src="<?php echo get_template_directory_uri(); ?>/img/chilly_spaces_logo.png"/>
-      </a>
+      <div class="col-xs-3">
+        <div class="logo-wrap">
+          <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <img class="chilly-logo-header" src="<?php echo get_template_directory_uri(); ?>/img/chilly_spaces_logo.png"/>
+          </a>
+          <h6><?php _e( 're-thinking the city!', 'chilly' ); ?></h6>
+        </div>
       </div>
       <div class="col-xs-6">
         <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">

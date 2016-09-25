@@ -4,21 +4,18 @@
 
 		<section class="section-intro bg-faded text-xs-center">
 			<ul id="lightSlider">
-				<li>
-					<img src="<?php the_field('slide_one'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_two'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_three'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_four'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_five'); ?>" />
-				</li>
+				<?php
+					for ( $i=1; $i<=5; $i++) {
+						$var_slide = 'slide_'.$i;
+						$image = get_field($var_slide);
+						
+						$slider_image = wp_get_attachment_image_src( $image, 'slider' );
+						if ($image) {
+							echo '<li><img src="'.$slider_image[0].'"/></li>';
+						}
+
+				}
+				?>
 			</ul>
 			<div class="container">
 				<?php

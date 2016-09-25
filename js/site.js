@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
-	setTimeout(function() {
-	 $('#preloader').fadeOut();
-	}, 7000 );
+	//setTimeout(function() {
+	//   $('#preloader').fadeOut();
+	//}, 7000 );
     $('.navbar .dropdown').hover(function () {
         $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
     }, function () {
@@ -22,25 +22,31 @@ jQuery(document).ready(function ($) {
        else {
          $('.navbar').removeClass('bg-inverse-custom');
        }
-    });
-    $('#contact').waypoint(function(direction) {
-    if (direction === 'down') {
-      // reveal our content
-      $('.section-footer').addClass('fadeIn');
-      $('.section-footer').removeClass('fadeOut');
-    } else if (direction === 'up') {
-      // hide our content
-      $('.section-footer').addClass('fadeOut');
-      $('.section-footer').removeClass('fadeIn');
-    }
+    }, { offset: '90%' });
+    // $('.section-footer').waypoint(function(direction) {
+    // if (direction === 'down') {
+    //   // reveal our content
+    //   $('.section-footer').addClass('fadeIn');
+    //   $('.section-footer').removeClass('fadeOut');
+    // } else if (direction === 'up') {
+    //   // hide our content
+    //   $('.section-footer').addClass('fadeOut');
+    //   $('.section-footer').removeClass('fadeIn');
+    // }
  
-  }, { offset: '100%' });
+    // }, { offset: '100%' });
 
-    var f1 = $( "#rcp_address_wrap" ).appendTo( "#form-2" );
+
+    //Fixing contact form
+    $('.contact-form br').remove();
+    $('.wpcf7-text').addClass('form-control form-control-lg');
+    $('.wpcf7-submit').addClass('btn btn-edgy invert btn-block');
+    
+    //Rearranging registration form fields
     var f1 = $( "#rcp_street_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_city_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_zip_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_house_number_wrap" ).appendTo( "#form-2" );
+    var f2 = $( "#rcp_city_wrap" ).appendTo( "#form-2" );
+    var f3 = $( "#rcp_zip_wrap" ).appendTo( "#form-2" );
+    var f4 = $( "#rcp_house_number_wrap" ).appendTo( "#form-2" );
     $("#lightSlider").lightSlider({
         item: 1,
         autoWidth: true,
