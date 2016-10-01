@@ -107,10 +107,19 @@ function chilly_conditional_scripts()
 {
     if (is_singular( 'space' )) {
         wp_register_style('lightslider', get_template_directory_uri() . '/css/lightslider.min.css', array(), '1.0', 'all');
-        wp_enqueue_style('lightslider'); // Enqueue it!
+        wp_enqueue_style('lightslider');
 
-        wp_register_script('lightslider', get_template_directory_uri() . '/js/plugins/lightslider.min.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('lightslider'); // Enqueue it!
+        wp_register_script('lightslider', get_template_directory_uri() . '/js/plugins/lightslider.min.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('lightslider');
+
+        wp_register_script('single-slider', get_template_directory_uri() . '/js/single-space-slider.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('single-slider');
+
+        wp_register_script('single-map', get_template_directory_uri() . '/js/single-space-map.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('single-map');
+
+        wp_register_script('gmaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCb6hvVxeVH-w44pQAiTJQInYeHJOSN5kI', array(), '1.0');
+        wp_enqueue_script('gmaps');
     }
 }
 
@@ -463,6 +472,21 @@ function create_custom_post_types()
         )
     ));
 }
+
+
+
+// Adding google maps API key
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyCb6hvVxeVH-w44pQAiTJQInYeHJOSN5kI');
+}
+add_action('acf/init', 'my_acf_init');
+
+/**
+ * enqueue scripts and styles 
+ *
+ */
+
+
 /**
  * Adds the custom fields to the registration form and profile editor
  *
@@ -471,13 +495,12 @@ function pw_rcp_add_user_fields() {
     
     $company_name = get_user_meta( get_current_user_id(), 'rcp_company_name', true );
     $house_number   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
-    $postcode   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
     ?>
     <p id="rcp_company_name_wrap">
         <label for="rcp_company_name"><?php _e( 'Company name', 'rcp' ); ?></label>
         <input name="rcp_company_name" id="rcp_company_name" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $company_name ); ?>"/>
     </p>
-    <p id="rcp_house_number_wrap">
+    <p id="rcp_house_number_wrap" class="col-md-4">
         <label for="rcp_house_number"><?php _e( 'House Number', 'rcp' ); ?></label>
         <input name="rcp_house_number" id="rcp_house_number" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
     </p>

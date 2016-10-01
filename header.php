@@ -27,20 +27,26 @@
         </div>
       </div>
       <div class="col-xs-6">
-        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
-          <ul class="nav navbar-nav">
-          	<?php chilly_nav( array( 'theme_location' => 'main-menu' ) );?>
-          </ul>
-        </div>
+        <ul class="nav navbar-nav hidden-sm-down">
+        	<?php chilly_nav( array( 'theme_location' => 'main-menu' ) );?>
+        </ul>
       </div>
       <div class="col-xs-3">
-        <a class="navbar-toggler hidden-md-up pull-xs-right p-r-0" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
+        <a class="navbar-toggler hidden-sm-up pull-xs-right p-r-0" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
         &#9776;
         </a>
         <div class="social">
+          <a class="nav-link" href="/register/edit-your-profile/">Log In</a>
           <a href="https://twitter.com/ChillySpaces" target="_blank"><span class="icon-twitter"></span></a>
           <a href="https://www.facebook.com/ChillySpaces-147808725641974/" target="_blank"><span class="icon-facebook"></span></a>
           <a href="https://www.instagram.com/chillyspaces/" target="_blank"><span class="icon-instagram"></span></a>
+        </div>
+      </div>
+      <div class="hidden-sm-up">
+        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
+            <ul class="nav navbar-nav">
+              <?php chilly_nav( array( 'theme_location' => 'main-menu' ) );?>
+            </ul>
         </div>
       </div>
     </div>

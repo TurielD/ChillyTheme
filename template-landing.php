@@ -5,32 +5,44 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-block"><span class="bg-inverse p-l">Get in in the first week</span></a>
-      </div>
-      <div id="promo" class="bg-inverse p-l">
-        <div class="container">
-          <a href="https://www.eventbrite.com/e/grand-opening-tickets-27787985613">
-            <h3 class="text-uppercase">ChillySpaces grand opening: october 3rd!</h3>
-            <h4><strong>12:00 - 15:00</strong></h4>
-            <h5>Join us for our opening celebration at the very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</h5>
-          </a>
-        </div>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy"><span class="p-l">Get in in the first week</span></a>
       </div>
     </header>
 
     <section id="features" class="section-features text-xs-center bg-white">
+      <div id="promo" class="p-l">
+        <div class="container">
+          <a href="https://www.eventbrite.com/e/grand-opening-tickets-27787985613">
+            <h4>Chilly<strong>Spaces</strong> grand opening: october 3rd!</h4>
+            <div class="promo-message">
+              <h4>12:00 - 15:00</h4>
+              <p style="line-height: 1.2rem">Join us for our opening celebration at the very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</p>
+            </div>
+          </a>
+          <a class="extend-less" href="javascript:void(0)">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
+            </svg>
+          </a>
+          <a class="extend-more" href="javascript:void(0)">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
       <div class="container">
         <!-- Intro
         ================================================== -->
-        <h3 class="wp wp-2 text-uppercase">What is Chilly Spaces</h3>
-        <hr class="title-underlined"/>
+        <h3 class="wp wp-2 text-uppercase"><?php _e( 'What is Chilly Spaces', 'chilly' ); ?></h3>
+        <hr class="title-underlined wp wp-2"/>
         <p class="lead wp wp-2 wide"><?php the_field('intro'); ?></p>
 
 
         <!-- Features
         ================================================== -->
         <div class="row p-y-3 features-list">
-          <h3 class="p-y-3"><?php _e( 'Features', 'chilly' ); ?></h3>
+          <h5 class="p-y-3"><?php _e( 'Features', 'chilly' ); ?></h5>
           <div class="col-md-6">
           <div class="card">
             <div class="card-block">
@@ -78,9 +90,7 @@
     ================================================== -->
 
     <section id="spaces" class="section-news bg-white text-xs-center">
-      <div class="container-fluid  p-y-3">
-      <h5 class="text-uppercase"><?php _e( 'Featured Space', 'chilly' ); ?></h5>
-      <hr class="title-underlined"/>
+      <div class="container-fluid">
     	<?php
     		$loc_args = array( 'post_type' => 'space', 'posts_per_page' => 1 );
 				$locations = new WP_Query( $loc_args );
@@ -89,15 +99,21 @@
       ?>
       <div class="row">
   			<div class="space" style="background: url('<?php echo $cover_img; ?>') 50% 50% no-repeat; background-size: cover;">
-            <div class="space-details">
-              <article class="center-block">
+          <div class="space-details">
+            <article class="center-block">
+              <div class="headline">
+                <h5 class="text-uppercase"><?php _e( 'Featured Space', 'chilly' ); ?></h5>
+                <hr class="title-underlined white"/>
+              </div>
+              <div class="space-description">
                 <h5><a href="<?php echo get_permalink();?>"><?php the_title();?></a></h5>
                 <hr class="title-underlined white"/>
                 <p class="m-b-0">
                   <?php echo chillywp_excerpt('chillywp_index'); ?>
                 </p>
-              </article>
-            </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
 			<?php
@@ -113,8 +129,7 @@
 	
     <section id="prices" class="section-pricing text-xs-center bg-white">
       <div class="container">
-        <h3 class="text-uppercase"><?php _e( 'Pricing', 'chilly' ); ?></h3>
-		<hr class="title-underlined"/>
+        <h5><?php _e( 'Pricing', 'chilly' ); ?></h5>
         <div class="row p-y-3">
           <div class="col-md-4 p-t-md wp wp-5 shadow">
             <div class="card pricing-box p-l">

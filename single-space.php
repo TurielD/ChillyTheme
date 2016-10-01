@@ -27,26 +27,39 @@
 			</div>
 	    </section>
 	    <section>
-		    <div class="container">
-				<article class="text-xs-center p-xl">
-					<h1><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
-					<h5 class="text-uppercase"><?php echo 'Open: '; echo the_field('week_days'); echo '~'; echo the_field('hours');?></h5>
-					<hr class="title-underlined"/>
-					<?php the_content();?>
+		    <div class="container-fluid">
+		    	<div class="col-md-6">
+					<article class="text-xs-center p-xl">
+						<h1><?php the_title(); ?></h1>
+						<h5 class="text-uppercase"><?php echo 'Open: '; echo the_field('week_days'); echo '~'; echo the_field('hours');?></h5>
+						<hr class="title-underlined"/>
+						<?php the_content();?>
 
-					<h6 class="text-uppercase">Features</h6>
-					<ul>
-						<li><?php if (get_field('wifi')) echo 'WIFI';?></li>
-						<li>Seats Available: <?php the_field('available_places'); ?></li>
-						<li><?php if (get_field('drinks')) echo 'We serve Drinks';?></li>
-						<li><?php if (get_field('spectacular_view')) echo 'Spectacular View';?></li>
-						<li><?php if (get_field('free_parking')) echo 'Free Parking';?></li>
-					</ul>
+						<h6 class="text-uppercase">Features</h6>
+						<ul>
+							<li><?php if (get_field('wifi')) echo 'WIFI';?></li>
+							<li>Seats Available: <?php the_field('available_places'); ?></li>
+							<li><?php if (get_field('drinks')) echo 'We serve Drinks';?></li>
+							<li><?php if (get_field('spectacular_view')) echo 'Spectacular View';?></li>
+							<li><?php if (get_field('free_parking')) echo 'Free Parking';?></li>
+						</ul>
 
-					<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
+						<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
 
-					<?php edit_post_link(); ?>
-				</article>
+						<?php edit_post_link(); ?>
+					</article>
+		    	</div>
+		    	<div class="col-md-6">
+			    	<?php 
+						$location = get_field('map');
+						if( !empty($location) ):
+						?>
+						<div class="csp-map">
+							<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+						</div>
+					<?php endif; ?>
+		    	</div>
+				
 			</div>
 		</section>
 
