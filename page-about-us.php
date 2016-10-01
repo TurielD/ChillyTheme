@@ -44,6 +44,7 @@
 					</div>
 				</div>
 				</div>
+<!--			5th Profile not in use
 				<div class="row">
 				<div class="col-md-6 col-md-offset-4">
 					<div class="profile">
@@ -52,7 +53,7 @@
 						</div>
 					</div>
 				</div>
-				</div>
+				</div> -->
 			</div>
 
 		<?php endwhile; ?>
