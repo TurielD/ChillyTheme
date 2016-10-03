@@ -5,18 +5,18 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l">Get in in the first week</span></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l">Sing up now to receive 50% discount on your first 6 months!</span></a>
       </div>
     </header>
 
     <section id="features" class="section-features text-xs-center bg-white">
       <div id="promo" class="p-l">
         <div class="container">
-          <a href="https://www.eventbrite.com/e/grand-opening-tickets-27787985613">
-            <h4>Chilly<strong>Spaces</strong> grand opening: october 3rd!</h4>
+          <a href="https://www.chillyspaces.com/#prices">
+            <h4><strong>ChillySpaces</strong> is now open!</h4>
             <div class="promo-message">
-              <h4>12:00 - 15:00</h4>
-              <p style="line-height: 1.2rem">Join us for our opening celebration at the very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</p>
+              <h4>09:00 - 17:00</h4>
+              <p style="line-height: 1.2rem">Come experience our very first <strong>ChillySpace</strong> at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by receive 50% discount on your first 6 months!</p>
             </div>
           </a>
           <a class="extend-less" href="javascript:void(0)">
