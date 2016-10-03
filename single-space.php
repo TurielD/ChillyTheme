@@ -4,21 +4,18 @@
 
 		<section class="section-intro bg-faded text-xs-center">
 			<ul id="lightSlider">
-				<li>
-					<img src="<?php the_field('slide_one'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_two'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_three'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_four'); ?>" />
-				</li>
-				<li>
-					<img src="<?php the_field('slide_five'); ?>" />
-				</li>
+				<?php
+					for ( $i=1; $i<=5; $i++) {
+						$var_slide = 'slide_'.$i;
+						$image = get_field($var_slide);
+						
+						$slider_image = wp_get_attachment_image_src( $image, 'slider' );
+						if ($image) {
+							echo '<li><img src="'.$slider_image[0].'"/></li>';
+						}
+
+				}
+				?>
 			</ul>
 			<div class="container">
 				<?php
@@ -30,26 +27,62 @@
 			</div>
 	    </section>
 	    <section>
-		    <div class="container">
-				<article class="text-xs-center p-xl">
-					<h1><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
-					<h5 class="text-uppercase"><?php echo 'Open: '; echo the_field('week_days'); echo '~'; echo the_field('hours');?></h5>
-					<hr class="title-underlined"/>
-					<?php the_content();?>
+		    <div class="container-fluid">
+		    	<div class="col-md-6">
+					<article class="text-xs-center p-xl">
+						<h1><?php the_title(); ?></h1>
+						<h5 class="text-uppercase"><?php echo 'Open: '; echo the_field('week_days'); echo '~'; echo the_field('hours');?></h5>
+						<hr class="title-underlined"/>
+						<?php the_content();?>
 
-					<h6 class="text-uppercase">Features</h6>
-					<ul>
-						<li><?php if (get_field('wifi')) echo 'WIFI';?></li>
-						<li>Seats Available: <?php the_field('available_places'); ?></li>
-						<li><?php if (get_field('drinks')) echo 'We serve Drinks';?></li>
-						<li><?php if (get_field('spectacular_view')) echo 'Spectacular View';?></li>
-						<li><?php if (get_field('free_parking')) echo 'Free Parking';?></li>
-					</ul>
+						<h6 class="text-uppercase p-y-3"><?php _e('Features', 'chilly'); ?></h6>
+						<?php if (get_field('wifi')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-wifi"></span>';
+							echo 'WIFI</div>';
+							}
+						?>
 
-					<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
+						<?php if (get_field('available_places')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-seat"></span>';
+							the_field('available_places');
+							echo '</div>';
+							}
+						?>
+						<?php if (get_field('drinks')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-drinks"></span>';
+							_e('We serve Drinks', 'chilly');
+							echo '</div>';
+							}
+						?>
+						<?php if (get_field('spectacular_view')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-view"></span>';
+							_e('Spectacular View', 'chilly');
+							echo '</div>';
+							};
+						?>
+						<?php if (get_field('free_parking')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-parking"></span>';
+							_e('Free Parking', 'chilly');
+							echo '</div>';
+							}
+						?>
 
-					<?php edit_post_link(); ?>
-				</article>
+						<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
+
+						<?php edit_post_link(); ?>
+					</article>
+		    	</div>
+		    	<div class="col-md-6">
+			    	<?php 
+						$location = get_field('map');
+						if( !empty($location) ):
+						?>
+						<div class="csp-map">
+							<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+						</div>
+					<?php endif; ?>
+		    	</div>
+				
 			</div>
 		</section>
 

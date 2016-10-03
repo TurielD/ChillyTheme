@@ -4,26 +4,45 @@
     ================================================== -->
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
-      <div class="container">
-      	<img class="chilly-logo-hero" src="<?php echo get_template_directory_uri(); ?>/img/chilly_spaces_logo_home.png"/>
-        <h2 class="m-b-3"><?php _e( 'Re-thinking the city!', 'chilly' ); ?></h2>
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-block"><span class="bg-inverse p-l">Get in in the first week</span></a>
+      <div class="container">          
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l">Get in in the first week</span></a>
       </div>
     </header>
 
     <section id="features" class="section-features text-xs-center bg-white">
+      <div id="promo" class="p-l">
+        <div class="container">
+          <a href="https://www.eventbrite.com/e/grand-opening-tickets-27787985613">
+            <h4>Chilly<strong>Spaces</strong> grand opening: october 3rd!</h4>
+            <div class="promo-message">
+              <h4>12:00 - 15:00</h4>
+              <p style="line-height: 1.2rem">Join us for our opening celebration at the very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</p>
+            </div>
+          </a>
+          <a class="extend-less" href="javascript:void(0)">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
+            </svg>
+          </a>
+          <a class="extend-more" href="javascript:void(0)">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
       <div class="container">
         <!-- Intro
         ================================================== -->
-        <h3 class="wp wp-2 text-uppercase">What is Chilly Spaces</h3>
-        <hr class="title-underlined"/>
+        <h3 class="wp wp-2 text-uppercase"><?php _e( 'What is Chilly Spaces', 'chilly' ); ?></h3>
+        <hr class="title-underlined wp wp-2"/>
         <p class="lead wp wp-2 wide"><?php the_field('intro'); ?></p>
 
 
         <!-- Features
         ================================================== -->
         <div class="row p-y-3 features-list">
-          <h3 class="p-y-3"><?php _e( 'Features', 'chilly' ); ?></h3>
+          <h5 class="p-y-3"><?php _e( 'Features', 'chilly' ); ?></h5>
           <div class="col-md-6">
           <div class="card">
             <div class="card-block">
@@ -59,76 +78,18 @@
       <div class="container">
         <!-- Mission
         ================================================== -->
-        <div class="row p-y-3 values-list">
-        <h3 class="wp wp-1 text-uppercase">What we do</h3>
-        <hr class="title-underlined"/>
-        <p class="lead wp wp-3 wide"><?php the_field('values'); ?></p>
-
-
-        <!-- Values
-        ================================================== -->
-        <div class="row p-y-3 section-values">
-          <h3 class="p-y-3"><?php _e( 'Values', 'chilly' ); ?></h3>
-          <div class="col-md-3">
-          <div class="card">
-            <div class="card-block">
-              <?php the_field('first_value'); ?>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="card">
-            <div class="card-block">
-              <?php the_field('second_value'); ?>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="card">
-            <div class="card-block">
-              <?php the_field('third_value'); ?>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="card">
-            <div class="card-block">
-              <?php the_field('forth_value'); ?>
-            </div>
-          </div>
-          </div>
-          <div class="row-centered">
-            <div class="col-md-3">
-              <div class="card">
-                <div class="card-block">
-                  <?php the_field('fifth_value'); ?>
-                </div>
-              </div>
-              </div>
-            <div class="col-md-3">
-              <div class="card">
-                <div class="card-block">
-                  <?php the_field('sixth_value'); ?>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <div class="card-block">
-                  <?php the_field('seventh_value'); ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="row values-list p-xxl">
+          <h3 class="wp wp-1 text-uppercase"><?php _e( 'Our Mission', 'chilly' ); ?></h3>
+          <hr class="title-underlined"/>
+          <p class="lead wp wp-3 wide"><?php the_field('values'); ?></p>
         </div>
       </div>
     </section>
 
-    <!-- News
+    <!-- Featured Space
     ================================================== -->
 
-    <section id="spaces" class="section-news bg-white">
+    <section id="spaces" class="section-news bg-white text-xs-center">
       <div class="container-fluid">
     	<?php
     		$loc_args = array( 'post_type' => 'space', 'posts_per_page' => 1 );
@@ -138,15 +99,23 @@
       ?>
       <div class="row">
   			<div class="space" style="background: url('<?php echo $cover_img; ?>') 50% 50% no-repeat; background-size: cover;">
-            <div class="space-details">
-              <article class="center-block">
-                <h5><a href="<?php echo get_permalink();?>"><?php the_title();?></a></h5>
+          <div class="space-details">
+            <article class="center-block">
+              <div class="headline">
+                <h5 class="text-uppercase"><?php _e( 'Featured Space', 'chilly' ); ?></h5>
                 <hr class="title-underlined white"/>
-                <p class="m-b-0">
-                  <?php echo chillywp_excerpt('chillywp_index'); ?>
-                </p>
-              </article>
-            </div>
+              </div>
+              <a href="<?php echo get_permalink();?>">
+                <div class="space-description">
+                  <h5><?php the_title();?></h5>
+                  <hr class="title-underlined white"/>
+                  <p class="m-b-0">
+                    <?php echo chillywp_excerpt('chillywp_index'); ?>
+                  </p>
+                </div>
+              </a>
+            </article>
+          </div>
         </div>
       </div>
 			<?php
@@ -159,87 +128,51 @@
     <!-- Pricing
     ================================================== -->
 
+	
     <section id="prices" class="section-pricing text-xs-center bg-white">
       <div class="container">
-        <h6 class="text-uppercase"><?php _e( 'Pricing', 'chilly' ); ?></h6>
+        <h5><?php _e( 'Pricing', 'chilly' ); ?></h5>
         <div class="row p-y-3">
-          <div class="col-md-3 p-t-md wp wp-5 shadow">
-            <div class="card pricing-box">
+          <div class="col-md-4 p-t-md wp wp-5 shadow">
+            <div class="card pricing-box p-l">
               <?php the_field('pricing_first'); ?>
             </div>
           </div>
-          <div class="col-md-3 p-t-md wp wp-6">
-            <div class="card pricing-box">
+          <div class="col-md-4 p-t-md wp wp-6">
+            <div class="card pricing-box p-l">
               <?php the_field('pricing_second'); ?>
             </div>
           </div>
-          <div class="col-md-3 p-t-md wp wp-6">
-            <div class="card pricing-box pricing-best shadow">
+          <div class="col-md-4 p-t-md wp wp-6">
+            <div class="card pricing-box pricing-best shadow p-l">
               <?php the_field('pricing_third'); ?>
             </div>
           </div>
-          <div class="col-md-3 p-t-md wp wp-6">
+          <!-- <div class="col-md-3 p-t-md wp wp-6">
             <div class="card pricing-box">
-              <?php the_field('pricing_forth'); ?>
+              <?php //the_field('pricing_forth'); ?>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
-
-    
-
     <!-- Contact
     ================================================== -->
 
     <section id="contact" class="section-text bg-white">
-      <div class="container">
-        
+      <div class="container">    
         <div class="row p-y-3">
           <div class="col-md-6 board-wrapper p-xxl">
             <div class="board">
-            <p class=""><strong>A posuere donec senectus suspendisse</strong> bibendum magna.</p>
+            <p><?php _e( '<strong>Stay in touch with ChillySpaces!</strong> Leave your contact info here, and we\'ll keep you up to date with all big <em>ChillySpaces</em> news!', 'chilly' ); ?></p>
             </div>
           </div>
           <div class="col-md-6 p-xl bg-white margin-left-n shadow contact-form">
-            <h3 class="text-xs-center">Start your free trial</h3>
-            <p class="text-xs-center">You'll be up and running in less<br>than a minute</p>
-            <form>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group has-icon-left form-control-name">
-                    <label class="sr-only" for="inputName">Your name</label>
-                    <input type="text" class="form-control form-control-lg" id="inputName" placeholder="Your name">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group has-icon-left form-control-email">
-                    <label class="sr-only" for="inputEmail">Email address</label>
-                    <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email address" autocomplete="off">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group has-icon-left form-control-email">
-                    <label class="sr-only" for="inputEmail">Email address</label>
-                    <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email address" autocomplete="off">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group has-icon-left form-control-email">
-                    <label class="sr-only" for="inputEmail">Email address</label>
-                    <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email address" autocomplete="off">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-edgy invert btn-block">Get started</button>
-                  </div>
-                </div>
-              </div>
-            </form>
+            <h3 class="text-xs-center"><?php _e( 'Please leave your contact information', 'chilly' ); ?></h3>
+            <p class="text-xs-center"><?php _e( 'We\'ll get back to you as soon as possible!', 'chilly' ); ?></p>
+            <?php echo do_shortcode('[contact-form-7 id="160" title="Home page Contact"]');?>
           </div>
         </div>
       </div>
     </section>
-
 <?php get_footer(); ?>

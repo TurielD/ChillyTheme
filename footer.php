@@ -7,8 +7,12 @@
           <div class="col-md-6 col-lg-5">
             <div class="media">
               <small class="media-body media-bottom">
-                &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>
+                &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?><br/>
+                info[at]chillyspaces.com | <a href=""><?php _e( 'Terms and conditions', 'chilly' ); ?></a>
               </small>
+              <a href="https://twitter.com/ChillySpaces" target="_blank"><span class="icon-twitter"></span></a>
+              <a href="https://www.facebook.com/ChillySpaces-147808725641974/" target="_blank"><span class="icon-facebook"></span></a>
+              <a href="https://www.instagram.com/chillyspaces/" target="_blank"><span class="icon-instagram"></span></a>
             </div>
           </div>
           <div class="col-md-6 col-lg-7">

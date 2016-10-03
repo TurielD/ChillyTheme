@@ -1,7 +1,29 @@
 jQuery(document).ready(function ($) {
-	setTimeout(function() {
-	 $('#preloader').fadeOut();
-	}, 7000 );
+	//setTimeout(function() {
+	//   $('#preloader').fadeOut();
+	//}, 7000 );
+    $('.extend-more').hide();
+    $('.extend-less').click(function(){
+      $('.promo-message').hide();
+      $('.extend-less').hide();
+      $('.extend-more').show();
+    });
+
+    $('.extend-more').click(function(){
+      $('.promo-message').show();
+      $('.extend-more').hide();
+      $('.extend-less').show();
+    });
+
+    $('.space').hover(function () {
+      $('.space .headline').hide();
+      $('.space .description').show();
+    },
+      function () {
+      $('.space .headline').show();
+      $('.space .description').hide();
+    });  
+
     $('.navbar .dropdown').hover(function () {
         $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
     }, function () {
@@ -22,67 +44,50 @@ jQuery(document).ready(function ($) {
        else {
          $('.navbar').removeClass('bg-inverse-custom');
        }
-    });
-    $('#contact').waypoint(function(direction) {
-    if (direction === 'down') {
-      // reveal our content
-      $('.section-footer').addClass('fadeIn');
-      $('.section-footer').removeClass('fadeOut');
-    } else if (direction === 'up') {
-      // hide our content
-      $('.section-footer').addClass('fadeOut');
-      $('.section-footer').removeClass('fadeIn');
-    }
+    }, { offset: '90%' });
+    // $('.section-footer').waypoint(function(direction) {
+    // if (direction === 'down') {
+    //   // reveal our content
+    //   $('.section-footer').addClass('fadeIn');
+    //   $('.section-footer').removeClass('fadeOut');
+    // } else if (direction === 'up') {
+    //   // hide our content
+    //   $('.section-footer').addClass('fadeOut');
+    //   $('.section-footer').removeClass('fadeIn');
+    // }
  
-  }, { offset: '100%' });
+    // }, { offset: '100%' });
 
-    var f1 = $( "#rcp_address_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_street_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_city_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_zip_wrap" ).appendTo( "#form-2" );
-    var f1 = $( "#rcp_house_number_wrap" ).appendTo( "#form-2" );
-    $("#lightSlider").lightSlider({
-        item: 1,
-        autoWidth: true,
-        slideMove: 1, // slidemove will be 1 if loop is true
-        slideMargin: 10,
- 
-        addClass: '',
-        mode: "slide",
-        useCSS: true,
-        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-        easing: 'linear', //'for jquery animation',////
- 
-        speed: 400, //ms'
-        auto: false,
-        loop: false,
-        slideEndAnimation: true,
-        pause: 2000,
- 
-        keyPress: false,
-        controls: true,
-        prevHtml: '',
-        nextHtml: '',
- 
-        rtl:false,
-        adaptiveHeight:true,
- 
-        vertical:false,
-        verticalHeight:500,
-        //vThumbWidth:100,
- 
-        //thumbItem:10,
-        pager: true,
-        gallery: false,
-        galleryMargin: 5,
-        thumbMargin: 5,
-        currentPagerPosition: 'middle',
- 
-        enableTouch:true,
-        enableDrag:true,
-        freeMove:true,
-        swipeThreshold: 40,
- 
-        responsive : []
+
+    //Fixing contact form
+    $('.contact-form br').remove();
+    $('.wpcf7-text').addClass('form-control form-control-lg');
+    $('.wpcf7-textarea').addClass('form-control form-control-lg');
+    $('.wpcf7-submit').addClass('btn btn-edgy invert btn-block');
+    
+    //Rearranging registration form fields
+    
+    //$('#rcp_registration_form input[type="text"]').addClass('form-control form-control-lg');
+    //$('#rcp_registration_form input[type="password"]').addClass('form-control form-control-lg');
+
+    //$('#rcp_profile_editor_form input[type="text"]').addClass('form-control form-control-lg');
+    //$('#rcp_profile_editor_form input[type="password"]').addClass('form-control form-control-lg');
+
+    $('#rcp_house_number_wrap').insertAfter( $('#rcp_profile_street_wrap') );
+    //$('#rcp_submit').addClass('btn btn-edgy invert');
+
+    $(function() {
+      $('a[href*="#"]:not([href="#collapsingNavbar"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top - 150
+            }, 1000);
+            return false;
+          }
+        }
+      });
     });
 });

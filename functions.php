@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('slider', 1200, 800, array( 'center', 'center' )); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('slider', 1200, 500, array( 'center', 'center' )); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -107,10 +107,19 @@ function chilly_conditional_scripts()
 {
     if (is_singular( 'space' )) {
         wp_register_style('lightslider', get_template_directory_uri() . '/css/lightslider.min.css', array(), '1.0', 'all');
-        wp_enqueue_style('lightslider'); // Enqueue it!
+        wp_enqueue_style('lightslider');
 
-        wp_register_script('lightslider', get_template_directory_uri() . '/js/plugins/lightslider.min.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('lightslider'); // Enqueue it!
+        wp_register_script('lightslider', get_template_directory_uri() . '/js/plugins/lightslider.min.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('lightslider');
+
+        wp_register_script('single-slider', get_template_directory_uri() . '/js/single-space-slider.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('single-slider');
+
+        wp_register_script('single-map', get_template_directory_uri() . '/js/single-space-map.js', array('jquery'), '1.0.0');
+        wp_enqueue_script('single-map');
+
+        wp_register_script('gmaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCb6hvVxeVH-w44pQAiTJQInYeHJOSN5kI', array(), '1.0');
+        wp_enqueue_script('gmaps');
     }
 }
 
@@ -235,7 +244,7 @@ function chillywp_pagination()
 // Custom Excerpts
 function chillywp_index($length) // Create 20 Word Callback for Index page Excerpts, call using chillywp_excerpt('chillywp_index');
 {
-    return 20;
+    return 15;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using chillywp_excerpt('chillywp_custom_post');
@@ -376,6 +385,10 @@ remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 // Add Filters
 add_filter('avatar_defaults', 'chillygravatar'); // Custom Gravatar in Settings > Discussion
@@ -463,6 +476,21 @@ function create_custom_post_types()
         )
     ));
 }
+
+
+
+// Adding google maps API key
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyCb6hvVxeVH-w44pQAiTJQInYeHJOSN5kI');
+}
+add_action('acf/init', 'my_acf_init');
+
+/**
+ * enqueue scripts and styles 
+ *
+ */
+
+
 /**
  * Adds the custom fields to the registration form and profile editor
  *
@@ -471,13 +499,12 @@ function pw_rcp_add_user_fields() {
     
     $company_name = get_user_meta( get_current_user_id(), 'rcp_company_name', true );
     $house_number   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
-    $postcode   = get_user_meta( get_current_user_id(), 'rcp_house_number', true );
     ?>
     <p id="rcp_company_name_wrap">
         <label for="rcp_company_name"><?php _e( 'Company name', 'rcp' ); ?></label>
         <input name="rcp_company_name" id="rcp_company_name" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $company_name ); ?>"/>
     </p>
-    <p id="rcp_house_number_wrap">
+    <p id="rcp_house_number_wrap" class="col-md-4">
         <label for="rcp_house_number"><?php _e( 'House Number', 'rcp' ); ?></label>
         <input name="rcp_house_number" id="rcp_house_number" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
     </p>
@@ -499,7 +526,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
             <label for="rcp_company_name"><?php _e( 'Company name', 'rcp' ); ?></label>
         </th>
         <td>
-            <input name="rcp_company_name" id="rcp_company_name" type="text" value="<?php echo esc_attr( $company_name ); ?>"/>
+            <input name="rcp_company_name" id="rcp_company_name" type="text" class="form-control form-control-lg" value="<?php echo esc_attr( $company_name ); ?>"/>
             <p class="description"><?php _e( 'The member\'s company name', 'rcp' ); ?></p>
         </td>
     </tr>
@@ -508,14 +535,34 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
             <label for="rcp_house_number"><?php _e( 'House number', 'rcp' ); ?></label>
         </th>
         <td>
-            <input name="rcp_house_number" id="rcp_house_number" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
+            <input name="rcp_house_number" id="rcp_house_number" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
             <p class="description"><?php _e( 'The member\'s house number', 'rcp' ); ?></p>
         </td>
     </tr>
     <?php
 }
 add_action( 'rcp_edit_member_after', 'pw_rcp_add_member_edit_fields' );
- 
+
+
+
+// Terms and Conditions agreement checkbox
+function chilly_terms() { ?>
+    <p id="rcp_chilly_terms">
+        <label for="rcp_chilly_terms"><?php _e( 'Agree to our Terms and Conditions', 'rcp' ); ?></label>
+        <input name="rcp_chilly_terms" id="rcp_chilly_terms" class="required" type="checkbox" />
+    </p>
+
+<?php
+}
+add_action ('rcp_after_register_form_fields', 'chilly_terms');
+
+function chilly_terms_check( $posted ) {
+    if(!isset( $posted['rcp_chilly_terms'] ) ) {
+        rcp_errors()->add( 'agreement_terms', __('Please agree to our terms and conditions', 'rcp'), 'register');
+    }
+}
+add_action('rcp_form_errors', 'chilly_terms_check', 10);
+
 /**
  * Determines if there are problems with the registration data submitted
  *
