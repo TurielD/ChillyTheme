@@ -35,14 +35,37 @@
 						<hr class="title-underlined"/>
 						<?php the_content();?>
 
-						<h6 class="text-uppercase">Features</h6>
-						<ul>
-							<li><?php if (get_field('wifi')) echo 'WIFI';?></li>
-							<li>Seats Available: <?php the_field('available_places'); ?></li>
-							<li><?php if (get_field('drinks')) echo 'We serve Drinks';?></li>
-							<li><?php if (get_field('spectacular_view')) echo 'Spectacular View';?></li>
-							<li><?php if (get_field('free_parking')) echo 'Free Parking';?></li>
-						</ul>
+						<h6 class="text-uppercase p-y-3"><?php _e('Features', 'chilly'); ?></h6>
+						<?php if (get_field('wifi')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-wifi"></span>';
+							echo 'WIFI</div>';
+							}
+						?>
+
+						<?php if (get_field('available_places')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-seat"></span>';
+							the_field('available_places');
+							echo '</div>';
+							}
+						?>
+						<?php if (get_field('drinks')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-drinks"></span>';
+							_e('We serve Drinks', 'chilly');
+							echo '</div>';
+							}
+						?>
+						<?php if (get_field('spectacular_view')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-view"></span>';
+							_e('Spectacular View', 'chilly');
+							echo '</div>';
+							};
+						?>
+						<?php if (get_field('free_parking')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-parking"></span>';
+							_e('Free Parking', 'chilly');
+							echo '</div>';
+							}
+						?>
 
 						<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
 

@@ -5,7 +5,7 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy"><span class="p-l">Get in in the first week</span></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l">Get in in the first week</span></a>
       </div>
     </header>
 
@@ -105,13 +105,15 @@
                 <h5 class="text-uppercase"><?php _e( 'Featured Space', 'chilly' ); ?></h5>
                 <hr class="title-underlined white"/>
               </div>
-              <div class="space-description">
-                <h5><a href="<?php echo get_permalink();?>"><?php the_title();?></a></h5>
-                <hr class="title-underlined white"/>
-                <p class="m-b-0">
-                  <?php echo chillywp_excerpt('chillywp_index'); ?>
-                </p>
-              </div>
+              <a href="<?php echo get_permalink();?>">
+                <div class="space-description">
+                  <h5><?php the_title();?></h5>
+                  <hr class="title-underlined white"/>
+                  <p class="m-b-0">
+                    <?php echo chillywp_excerpt('chillywp_index'); ?>
+                  </p>
+                </div>
+              </a>
             </article>
           </div>
         </div>

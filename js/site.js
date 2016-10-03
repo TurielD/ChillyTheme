@@ -67,20 +67,14 @@ jQuery(document).ready(function ($) {
     
     //Rearranging registration form fields
     
-    $('#rcp_registration_form input[type="text"]').addClass('form-control form-control-lg');
-    $('#rcp_registration_form input[type="password"]').addClass('form-control form-control-lg');
+    //$('#rcp_registration_form input[type="text"]').addClass('form-control form-control-lg');
+    //$('#rcp_registration_form input[type="password"]').addClass('form-control form-control-lg');
 
-    $('#rcp_profile_editor_form input[type="text"]').addClass('form-control form-control-lg');
-    $('#rcp_profile_editor_form input[type="password"]').addClass('form-control form-control-lg');
+    //$('#rcp_profile_editor_form input[type="text"]').addClass('form-control form-control-lg');
+    //$('#rcp_profile_editor_form input[type="password"]').addClass('form-control form-control-lg');
 
-    $('#rcp_house_number_wrap').insertAfter( $('#rcp_profile_street_wrap') );
-    $('#rcp_submit').addClass('btn btn-edgy invert');
-    
-    var f1 = $( "#rcp_street_wrap" ).appendTo( "#form-2" );
-    var f2 = $( "#rcp_city_wrap" ).appendTo( "#form-2" );
-    var f3 = $( "#rcp_zip_wrap" ).appendTo( "#form-2" );
-    var f4 = $( "#rcp_house_number_wrap" ).appendTo( "#form-2" );
-
+    //$('#rcp_house_number_wrap').insertAfter( $('#rcp_profile_street_wrap') );
+    //$('#rcp_submit').addClass('btn btn-edgy invert');
 
     $(function() {
       $('a[href*="#"]:not([href="#collapsingNavbar"])').click(function() {

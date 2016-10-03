@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('slider', 1200, 800, array( 'center', 'center' )); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('slider', 1200, 500, array( 'center', 'center' )); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -385,6 +385,10 @@ remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 // Add Filters
 add_filter('avatar_defaults', 'chillygravatar'); // Custom Gravatar in Settings > Discussion
@@ -522,7 +526,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
             <label for="rcp_company_name"><?php _e( 'Company name', 'rcp' ); ?></label>
         </th>
         <td>
-            <input name="rcp_company_name" id="rcp_company_name" type="text" value="<?php echo esc_attr( $company_name ); ?>"/>
+            <input name="rcp_company_name" id="rcp_company_name" type="text" class="form-control form-control-lg" value="<?php echo esc_attr( $company_name ); ?>"/>
             <p class="description"><?php _e( 'The member\'s company name', 'rcp' ); ?></p>
         </td>
     </tr>
@@ -531,7 +535,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
             <label for="rcp_house_number"><?php _e( 'House number', 'rcp' ); ?></label>
         </th>
         <td>
-            <input name="rcp_house_number" id="rcp_house_number" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
+            <input name="rcp_house_number" id="rcp_house_number" class="form-control form-control-lg" type="text" value="<?php echo esc_attr( $house_number ); ?>"/>
             <p class="description"><?php _e( 'The member\'s house number', 'rcp' ); ?></p>
         </td>
     </tr>

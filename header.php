@@ -36,16 +36,33 @@
         &#9776;
         </a>
         <div class="social">
-          <a class="nav-link" href="/register/edit-your-profile/">Log In</a>
           <a href="https://twitter.com/ChillySpaces" target="_blank"><span class="icon-twitter"></span></a>
           <a href="https://www.facebook.com/ChillySpaces-147808725641974/" target="_blank"><span class="icon-facebook"></span></a>
           <a href="https://www.instagram.com/chillyspaces/" target="_blank"><span class="icon-instagram"></span></a>
+          <?php
+            if( ! is_user_logged_in() ) {
+              echo '<a class="nav-link nav-login" href="/signin/">'.__('Log In', 'chilly').'</a>';
+            }
+            else {
+              echo '<a class="nav-link nav-profile" href="'.home_url().'/register/member-profile">'.__('Profile', 'chilly').'</a><span class="separator-x"></span>';
+              echo '<a class="nav-link nav-login" href="'.wp_logout_url( home_url() ).'">'.__('Log Out', 'chilly').'</a>';
+            }
+          ?>
         </div>
       </div>
       <div class="hidden-sm-up">
         <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
             <ul class="nav navbar-nav">
               <?php chilly_nav( array( 'theme_location' => 'main-menu' ) );?>
+              <?php
+              if( ! is_user_logged_in() ) {
+                echo '<li class="nav-item"><a class="nav-link nav-login" href="/signin/">'.__('Log In', 'chilly').'</a></li>';
+              }
+              else {
+                echo '<li class="nav-item"><a class="nav-link nav-profile" href="'.home_url().'/register/member-profile">'.__('Profile', 'chilly').'</a><li>';
+                echo '<li class="nav-item"><a class="nav-link nav-login" href="'.wp_logout_url( home_url() ).'">'.__('Log Out', 'chilly').'</a></li>';
+              }
+            ?>
             </ul>
         </div>
       </div>
