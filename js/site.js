@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
     //$('#rcp_profile_editor_form input[type="text"]').addClass('form-control form-control-lg');
     //$('#rcp_profile_editor_form input[type="password"]').addClass('form-control form-control-lg');
 
-    //$('#rcp_house_number_wrap').insertAfter( $('#rcp_profile_street_wrap') );
+    $('#rcp_house_number_wrap').insertAfter( $('#rcp_profile_street_wrap') );
     //$('#rcp_submit').addClass('btn btn-edgy invert');
 
     $(function() {

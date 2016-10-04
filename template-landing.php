@@ -16,7 +16,7 @@
             <h4><strong>ChillySpaces</strong> is now open!</h4>
             <div class="promo-message">
               <h4>09:00 - 17:00</h4>
-              <p style="line-height: 1.2rem">Come experience our very first <strong>ChillySpace</strong> at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by receive 50% discount on your first 6 months!</p>
+              <p style="line-height: 1.2rem">Come experience our newly very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</p>
             </div>
           </a>
           <a class="extend-less" href="javascript:void(0)">

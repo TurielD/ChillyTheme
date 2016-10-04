@@ -542,7 +542,27 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
     <?php
 }
 add_action( 'rcp_edit_member_after', 'pw_rcp_add_member_edit_fields' );
- 
+
+
+
+// Terms and Conditions agreement checkbox
+function chilly_terms() { ?>
+    <p id="rcp_chilly_terms">
+        <label for="rcp_chilly_terms"><?php _e( 'Agree to our Terms and Conditions', 'rcp' ); ?></label>
+        <input name="rcp_chilly_terms" id="rcp_chilly_terms" class="required" type="checkbox" />
+    </p>
+
+<?php
+}
+add_action ('rcp_after_register_form_fields', 'chilly_terms');
+
+function chilly_terms_check( $posted ) {
+    if(!isset( $posted['rcp_chilly_terms'] ) ) {
+        rcp_errors()->add( 'agreement_terms', __('Please agree to our terms and conditions', 'rcp'), 'register');
+    }
+}
+add_action('rcp_form_errors', 'chilly_terms_check', 10);
+
 /**
  * Determines if there are problems with the registration data submitted
  *
