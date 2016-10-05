@@ -8,7 +8,7 @@
             <div class="media">
               <small class="media-body media-bottom">
                 &copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?><br/>
-                info[at]chillyspaces.com | <a href=""><?php _e( 'Terms and conditions', 'chilly' ); ?></a>
+                info[at]chillyspaces.com | <a href="https://www.chillyspaces.com/terms-and-conditions/"><?php _e( 'Terms and conditions', 'chilly' ); ?></a>
               </small>
               <a href="https://twitter.com/ChillySpaces" target="_blank"><span class="icon-twitter"></span></a>
               <a href="https://www.facebook.com/ChillySpaces-147808725641974/" target="_blank"><span class="icon-facebook"></span></a>
@@ -30,7 +30,7 @@
 		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
 		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
+		ga('create', 'UA-84665633-1', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
     	
