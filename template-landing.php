@@ -5,7 +5,7 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l"><h1>Re-think the city and the way you work</h1><h2>Co-working & networking in inspiring spaces</h2>Sign up now to receive 50% discount on your first 6 months!</span></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l"><h1>Re-think the city and the way you work</h1><h2>Co-working & networking in inspiring spaces<!--</h2>Sign up now to receive 50% discount on your first 6 months!<br/>--><h2></br>Click here to <em>try out <strong>ChillySpaces</strong></em> for one day - totally <strong>free!</strong></h2><br/></span></a>
       </div>
     </header>
 
@@ -16,7 +16,7 @@
             <h4><strong>ChillySpaces</strong> is now open!</h4>
             <div class="promo-message">
               <h4>09:00 - 17:00</h4>
-              <p style="line-height: 1.2rem">Come experience our very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership by October 8th and receive 50% discount on your first 6 months membership!</p>
+              <p style="line-height: 1.2rem">Come experience our very first ChillySpace at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership in our first weeks and receive 50% discount on your first 6 months membership!</p>
             </div>
           </a>
           <a class="extend-less" href="javascript:void(0)">

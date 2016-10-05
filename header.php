@@ -44,7 +44,7 @@
               echo '<a class="nav-link nav-login" href="/signin/">'.__('Log In', 'chilly').'</a>';
             }
             else {
-              echo '<a class="nav-link nav-profile" href="'.home_url().'/register/member-profile">'.__('Profile', 'chilly').'</a><span class="separator-x"></span>';
+              echo '<a class="nav-link nav-profile" href="'.home_url().'/register/membership">'.__('Profile', 'chilly').'</a><span class="separator-x"></span>';
               echo '<a class="nav-link nav-login" href="'.wp_logout_url( home_url() ).'">'.__('Log Out', 'chilly').'</a>';
             }
           ?>
