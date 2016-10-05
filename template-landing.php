@@ -5,7 +5,7 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l">Sing up now to receive 50% discount on your first 6 months!</span></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l"><h1>Re-think the city and the way you work</h1><h2>Co-working & networking in inspiring spaces</h2>Sign up now to receive 50% discount on your first 6 months!</span></a>
       </div>
     </header>
 
