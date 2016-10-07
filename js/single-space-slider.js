@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
         item: 1,
         autoWidth: true,
         slideMove: 1, // slidemove will be 1 if loop is true
-        slideMargin: 10,
+        slideMargin: 0,
  
         addClass: '',
         mode: "slide",
@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
  
         speed: 400, //ms'
         auto: false,
-        loop: false,
+        loop: true,
         slideEndAnimation: true,
         pause: 2000,
  
