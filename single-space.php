@@ -66,6 +66,13 @@
 							echo '</div>';
 							}
 						?>
+						<?php if (get_field('printing_scanning')) {
+							echo '<div class="col-md-6 p-l"><span class="csp-icon icon-printer"></span>';
+							_e('Printing & Scanning', 'chilly');
+							echo '</div>';
+							}
+						?>
+
 
 						<?php the_tags( __( 'Tags: ', 'chilly' ), ', ', '<br>'); ?>
 
