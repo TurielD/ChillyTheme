@@ -5,7 +5,7 @@
 
     <header class="jumbotron bg-inverse text-xs-center center-vertically poster" role="banner">
       <div class="container">          
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l"><h1>Re-think the city and the way you work</h1><h2>Coworking & networking in inspiring spaces<!--</h2>Sign up now to receive 50% discount on your first 6 months!<br/>--><h2></br>Click here to <em>try out <strong>ChillySpaces</strong></em> for one day - totally <strong>free!</strong></h2><br/></span></a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>register" class="btn btn-edgy" style="background:rgba(0,0,0,.3)"><span class="p-l"><h1>Re-think the city and the way you work</h1><h2>Coworking & networking in inspiring spaces<!--</h2>Sign up now to receive a big discount on your first 6 months!<br/>--><h2></br>Click here to <em>try out <strong>ChillySpaces</strong></em> for one day - totally <strong>free!</strong></h2><br/></span></a>
       </div>
     </header>
 
@@ -16,7 +16,7 @@
             <h4><strong>ChillySpaces</strong> is now open!</h4>
             <div class="promo-message">
               <h4>09:00 - 17:00</h4>
-              <p style="line-height: 1.2rem">Come experience our very first <em>Chilly Coworking Space</em> at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership in our first weeks and receive 50% discount on your first 6 months membership!</p>
+              <p style="line-height: 1.2rem">Come experience our very first <em>Chilly Coworking Space</em> at Cedars Lebanese restaurant in Amsterdam!<br/>Sign up for our Early Chillies membership in our first weeks and receive a big discount on your first 6 months membership!</p>
             </div>
           </a>
           <a class="extend-less" href="javascript:void(0)">
@@ -42,7 +42,7 @@
         <!-- Features
         ================================================== -->
         <div class="row p-y-3 features-list">
-          <h5 class="p-y-3"><?php _e( 'Features', 'chilly' ); ?></h5>
+          <h4 class="p-y-3"><?php _e( 'Chilly Features', 'chilly' ); ?></h4>
           <div class="col-md-6">
           <div class="card">
             <div class="card-block">
@@ -131,7 +131,9 @@
 	
     <section id="prices" class="section-pricing text-xs-center bg-white">
       <div class="container">
-        <h5><?php _e( 'Pricing', 'chilly' ); ?></h5>
+		<h3 class="wp wp-2 text-uppercase"><br/><?php _e( 'Pricing', 'chilly' ); ?></h3>
+        <hr class="title-underlined wp wp-2"/>
+
         <div class="row p-y-3">
           <div class="col-md-4 p-t-md wp wp-5 shadow">
             <div class="card pricing-box p-l">
@@ -156,7 +158,38 @@
         </div>
       </div>
     </section>
-    <!-- Contact
+
+    <!-- Media
+    ================================================== -->
+	<section id="Media" class="section-values bg-inverse text-xs-center">
+	<div class="container">
+        <!-- Title-->
+        <h3 class="wp wp-2"><br/><?php _e( 'As Featured In:', 'chilly' ); ?></h3>
+        <hr class="title-underlined wp wp-2"/>
+
+	<!-- 4 - 4 - 4 spacing until we have more media -->
+		<div class="row">
+          <div class="col-md-4">
+		  	<div class="img">
+			  <?php the_field('first_media'); ?>
+			</div>
+          </div>
+          <div class="col-md-4">
+			<div class="img">
+			  <?php the_field('second_media'); ?>
+			</div>
+          </div>
+          <div class="col-lg-4">
+			<div class="img">  
+              <?php the_field('third_media'); ?>
+			</div>
+          </div>
+        </div>
+		<h3 class="wp wp-2 text-uppercase"><br/><br/></h3>
+	</div>
+	</section>   
+	
+	<!-- Contact
     ================================================== -->
 
     <section id="contact" class="section-text bg-white">

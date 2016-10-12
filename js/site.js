@@ -77,7 +77,7 @@ jQuery(document).ready(function ($) {
     //$('#rcp_submit').addClass('btn btn-edgy invert');
 
     $(function() {
-      $('a[href*="#"]:not([href="#collapsingNavbar"])').click(function() {
+      $('a[href*="#"]:not([href="#collapsingNavbar"], [href="#carousel-testimonials"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
